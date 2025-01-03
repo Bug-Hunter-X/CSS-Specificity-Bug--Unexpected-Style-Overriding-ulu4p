@@ -1,0 +1,19 @@
+To solve the issue of unexpected style overriding, you should carefully consider the specificity of your CSS selectors.  One approach is to use more specific selectors for your intended styling to avoid conflicts. 
+In the example, the `#myDiv.container` selector is too specific for the desired result. By changing the selector you get the expected behavior.
+
+```css
+div {
+  background-color: lightblue;
+}
+
+.container div {
+  background-color: lightgreen;
+}
+
+#myDiv {
+  background-color: yellow; /* This will be applied correctly */
+}
+
+/* Removed the overly specific selector */
+```
+Alternatively, you can adjust the order in which your CSS rules are defined, to ensure that the styles you want to apply are prioritized.  However, relying on order is less robust and maintainable than thoughtfully constructed selectors.
