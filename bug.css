@@ -1,0 +1,22 @@
+The following CSS code snippet demonstrates a scenario where an unexpected behavior might occur due to the specificity of CSS selectors:
+
+```css
+div {
+  background-color: lightblue;
+}
+
+.container div {
+  background-color: lightgreen;
+}
+
+#myDiv {
+  background-color: yellow;
+}
+
+#myDiv.container {
+  background-color: lightcoral; /*This will override other styles */
+}
+
+```
+
+The intended behavior might be that only `#myDiv` will have a background color of yellow, but because of the specificity of `#myDiv.container`, the element with the ID "myDiv" that also has the class "container" will override this color, making it lightcoral instead.
